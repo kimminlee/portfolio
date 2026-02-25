@@ -72,6 +72,24 @@ export const projects: Project[] = [
       "Atomic Design 패턴 적용",
       "컴포넌트 문서화 및 Storybook 구축"
     ]
+  },
+   {
+    id: 5,
+    title: "Code Dictionary (UI 컴포넌트/개념 사전)",
+    desc: "HTML·CSS·JavaScript 항목을 카드/사이드바 기반으로 빠르게 탐색하는 개인 문서형 웹",
+    category: 'design-system',
+    tags: ['HTML5', 'CSS3', 'JavaScript'],
+    features: ['design-tokens', 'accessibility', 'responsive'],
+    image: "/images/project5.png",
+    links: {
+      demo: "https://code-dictionary.vercel.app/",
+      github: "https://github.com/kimminlee/code-dictionary"
+    },
+    highlights: [
+      "카테고리 카드 + 사이드바 네비게이션으로 항목 구조화",
+      "페이지별 TOC 자동 생성(섹션 앵커)으로 빠른 이동 지원",
+      "코드 블록 Copy 버튼 제공 및 문서형 레이아웃 최적화"
+    ]
   }
 ];
 
