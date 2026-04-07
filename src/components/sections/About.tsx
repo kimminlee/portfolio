@@ -6,7 +6,7 @@ import { Briefcase, Target, TrendingUp, MapPin, Mail } from 'lucide-react';
 
 // ✅ 사진 추가 시 이 경로만 변경하면 됩니다
 // 예: '/images/profile.jpg'
-const PROFILE_IMAGE_SRC = '';
+const PROFILE_IMAGE_SRC = '/images/profile.png';
 
 export const About = () => {
   const sectionRef = useRef<HTMLElement>(null);
