@@ -6,43 +6,44 @@ export const skills: Skill[] = [
     name: 'HTML5',
     category: 'Frontend',
     level: 'expert',
-    description: '시맨틱 마크업, 웹 접근성(WCAG 2.1 AA), SEO 최적화, 구조화된 데이터',
+    description: '구조를 먼저 생각하며 작성합니다. 시맨틱 태그 선택, 접근성(WCAG 2.1 AA), SEO까지 자연스럽게 고려한 마크업을 작성합니다.',
     icon: 'Code2'
   },
   {
     name: 'JavaScript',
     category: 'Frontend',
     level: 'intermediate',
-    description: 'ES2023 문법, 비동기 처리(Promise/async-await), 클로저, 프로토타입 체인',
+    description: '비동기 처리나 DOM 조작은 익숙하게 다룹니다. 프레임워크 없이도 웬만한 인터랙션은 구현할 수 있습니다.',
     icon: 'FileCode'
   },
   {
     name: 'React',
     category: 'Frontend',
     level: 'beginner',
-    description: '기본 Hooks(useState/useEffect) 사용 경험 있음, 컴포넌트 분리 수준. 커스텀 훅·Context 설계는 경험 없음',
+    description: 'useState, useEffect 같은 기본 훅을 사용해본 정도입니다. 컴포넌트 분리는 할 수 있지만 커스텀 훅을 직접 설계한 경험은 없습니다.',
     icon: 'Component'
   },
   {
     name: 'TypeScript',
     category: 'Frontend',
     level: 'beginner',
-    description: '기본 타입 어노테이션, interface/type 정의, 타입 추론에 의존하는 수준',
+    description: 'interface나 type 정의 정도는 작성할 수 있습니다. 제네릭이나 고급 유틸리티 타입은 아직 낯설며 타입 추론에 많이 의존합니다.',
     icon: 'FileType'
   },
+
   // Styling
   {
     name: 'CSS3',
     category: 'Styling',
     level: 'expert',
-    description: 'CSS Variables, Flexbox/Grid 마스터, 복잡한 애니메이션, 상태 기반 클래스, 반응형 디자인',
+    description: '가장 자신 있는 영역입니다. Flexbox/Grid는 자유자재로 활용하며, CSS Variables로 테마를 구성하거나 JS 없이 상태 기반 스타일링도 구현합니다.',
     icon: 'Palette'
   },
   {
     name: 'Tailwind CSS',
     category: 'Styling',
     level: 'intermediate',
-    description: 'Utility 클래스 활용, 커스텀 설정(theme.extend), 반응형 디자인, @apply 지시어',
+    description: '유틸리티 클래스 조합에 익숙하고 커스텀 설정도 해봤습니다. 이 포트폴리오도 Tailwind로 작성했습니다.',
     icon: 'Wind'
   },
 
@@ -50,8 +51,8 @@ export const skills: Skill[] = [
   {
     name: 'Zustand',
     category: 'State Management',
-    level: 'intermediate',
-    description: '전역 상태 관리, 미들웨어(persist/devtools), 슬라이스 패턴 기초',
+    level: 'beginner',
+    description: '간단한 전역 상태 store를 만들어 본 경험은 있습니다. persist나 devtools 같은 미들웨어는 아직 사용해본 적 없습니다.',
     icon: 'Box'
   },
 
@@ -60,28 +61,28 @@ export const skills: Skill[] = [
     name: 'VS Code',
     category: 'Tools',
     level: 'expert',
-    description: '단축키 마스터, 스니펫 제작, 디버깅, 익스텐션 최적화, 워크스페이스 설정',
+    description: '하루 종일 사용하는 도구라 손에 완전히 익었습니다. 자주 쓰는 패턴은 스니펫으로 등록해두고, 단축키도 대부분 외워서 마우스 없이 작업합니다.',
     icon: 'Code'
   },
   {
     name: 'Git/GitHub',
     category: 'Tools',
     level: 'beginner',
-    description: 'add/commit/push 기본 워크플로우, GitHub 저장소 관리, 기본 브랜치 사용',
+    description: 'commit, push, 브랜치 생성 같은 기본 작업은 단독으로 처리할 수 있습니다. rebase나 cherry-pick 같은 고급 기능은 아직 익숙하지 않습니다.',
     icon: 'GitBranch'
   },
   {
     name: 'Figma',
     category: 'Tools',
     level: 'expert',
-    description: 'UI/UX 디자인, 프로토타이핑, 컴포넌트 시스템, Auto Layout, Dev Mode 핸드오프',
+    description: '실무에서 가장 많이 사용하는 도구입니다. Auto Layout으로 확장 가능한 디자인을 구성하고, Dev Mode로 개발자에게 직접 핸드오프합니다.',
     icon: 'Figma'
   },
   {
     name: 'Vite',
     category: 'Tools',
     level: 'intermediate',
-    description: 'HMR 활용, 프로덕션 빌드 최적화, 환경변수 관리, 플러그인 설정',
+    description: 'React 프로젝트 환경 세팅에 주로 사용합니다. 빌드 설정이나 환경변수 관리 정도는 스스로 처리할 수 있습니다.',
     icon: 'Zap'
   },
 
@@ -90,7 +91,7 @@ export const skills: Skill[] = [
     name: 'Supabase',
     category: 'Database',
     level: 'intermediate',
-    description: 'PostgreSQL 쿼리, RLS 정책 설정, 실시간 구독, Storage/Auth 통합',
+    description: '프로젝트에서 백엔드 대용으로 사용해봤습니다. 기본 CRUD 쿼리와 Auth 연동은 할 수 있으며, RLS 정책 설정도 경험해봤습니다.',
     icon: 'Database'
   }
 ];
