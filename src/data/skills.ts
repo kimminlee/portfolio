@@ -42,9 +42,16 @@ export const skills: Skill[] = [
   {
     name: 'Tailwind CSS',
     category: 'Styling',
-    level: 'intermediate',
+    level: 'beginner',
     description: '유틸리티 클래스 조합에 익숙하고 커스텀 설정도 해봤습니다. 이 포트폴리오도 Tailwind로 작성했습니다.',
     icon: 'Wind'
+  },
+  {
+    name: 'SCSS',
+    category: 'Styling',
+    level: 'intermediate',
+    description: '변수·믹스인·중첩 규칙을 활용해 유지보수하기 쉬운 스타일 구조를 작성합니다. 컴포넌트 단위 파일 분리와 @use/@forward 기반 모듈화도 경험했습니다.',
+    icon: 'Layers'
   },
 
   // State Management
