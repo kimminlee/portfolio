@@ -1,50 +1,72 @@
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import { Mail, Github, ExternalLink } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { Mail, Github, Check, Copy } from 'lucide-react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { profile } from '../../data/profile';
 
 export const Contact = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const isVisible = useScrollAnimation(sectionRef);
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    await navigator.clipboard.writeText(profile.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <section
       id="contact"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white"
+      className="py-24 bg-bg-subtle"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-section mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
-          <p className="text-[17px] text-slate-300">
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">Get In Touch</h2>
+          <p className="mt-2 text-base text-slate-500 dark:text-slate-400">
             협업 제안이나 문의사항이 있으시면 연락주세요.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-2xl">
           {/* Email */}
-          <motion.a
-            href={`mailto:${profile.email}`}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="group bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 border border-white/10 hover:border-white/30"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-bg-card rounded-2xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm"
           >
-            <div className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <Mail size={26} />
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-blue-50 dark:bg-blue-950/50 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Mail size={18} className="text-blue-500" />
+              </div>
+              <div>
+                <p className="text-[13px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Email</p>
+                <p className="text-sm font-medium text-slate-700 dark:text-slate-300 break-all">{profile.email}</p>
+              </div>
             </div>
-            <h3 className="text-xl font-bold mb-2">Email</h3>
-            <p className="text-slate-300 text-[14px] break-all">{profile.email}</p>
-            <div className="flex items-center gap-2 mt-4 text-blue-400 text-[14px] font-medium">
-              Send a message <ExternalLink size={15} />
+            <div className="flex gap-2">
+              <a
+                href={`mailto:${profile.email}`}
+                className="flex-1 text-center px-4 py-2 text-[13px] font-medium text-white bg-accent hover:bg-accent-hover rounded-lg transition-colors"
+              >
+                메일 보내기
+              </a>
+              <button
+                onClick={copyEmail}
+                aria-label="이메일 복사"
+                className="w-9 h-9 flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+              >
+                {copied ? <Check size={15} className="text-emerald-500" /> : <Copy size={15} />}
+              </button>
             </div>
-          </motion.a>
+          </motion.div>
 
           {/* GitHub */}
           <motion.a
@@ -53,47 +75,33 @@ export const Contact = () => {
             rel="noreferrer"
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="group bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 border border-white/10 hover:border-white/30"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="group bg-bg-card rounded-2xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:border-slate-300 dark:hover:border-slate-600 transition-colors"
           >
-            <div className="w-14 h-14 bg-slate-700 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <Github size={26} />
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-slate-200 dark:group-hover:bg-slate-700 transition-colors">
+                <Github size={18} className="text-slate-600 dark:text-slate-400" />
+              </div>
+              <div>
+                <p className="text-[13px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest">GitHub</p>
+                <p className="text-sm font-medium text-slate-700 dark:text-slate-300">@kimminlee</p>
+              </div>
             </div>
-            <h3 className="text-xl font-bold mb-2">GitHub</h3>
-            <p className="text-slate-300 text-[14px]">@kimminlee</p>
-            <div className="flex items-center gap-2 mt-4 text-blue-400 text-[14px] font-medium">
-              View profile <ExternalLink size={15} />
-            </div>
+            <p className="text-[13px] text-slate-400 dark:text-slate-500 group-hover:text-blue-500 transition-colors font-medium">
+              프로필 보기 →
+            </p>
           </motion.a>
-
-          {/* Portfolio */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
-          >
-            <div className="w-14 h-14 bg-cyan-600 rounded-full flex items-center justify-center mb-4">
-              <ExternalLink size={26} />
-            </div>
-            <h3 className="text-xl font-bold mb-2">Portfolio</h3>
-            <p className="text-slate-300 text-[14px]">kimminlee.dev</p>
-            <div className="flex items-center gap-2 mt-4 text-blue-400 text-[14px] font-medium">
-              You are here!
-            </div>
-          </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-16 text-center"
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isVisible ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-10 text-[13px] text-slate-400 dark:text-slate-600 flex items-center gap-2"
         >
-          <p className="text-slate-400 text-[14px]">
-            Currently open to new opportunities and collaborations
-          </p>
-        </motion.div>
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse inline-block" />
+          Currently open to new opportunities
+        </motion.p>
       </div>
     </section>
   );

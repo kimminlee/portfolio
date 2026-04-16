@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { profile } from '../../data/profile';
 
-const FULL_TEXT = '디자인의 의도를 코드로 구현합니다.';
+const TYPING_TEXT = profile.subtitle;
 
 export const Hero = () => {
   const [displayedText, setDisplayedText] = useState('');
@@ -12,14 +13,14 @@ export const Hero = () => {
     const delay = setTimeout(() => {
       let i = 0;
       const timer = setInterval(() => {
-        if (i <= FULL_TEXT.length) {
-          setDisplayedText(FULL_TEXT.slice(0, i++));
+        if (i <= TYPING_TEXT.length) {
+          setDisplayedText(TYPING_TEXT.slice(0, i++));
         } else {
           clearInterval(timer);
         }
-      }, 65);
+      }, 55);
       return () => clearInterval(timer);
-    }, 500);
+    }, 400);
     return () => clearTimeout(delay);
   }, []);
 
@@ -41,12 +42,12 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-slate-950"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-base"
     >
       {/* dot grid */}
       <div className="absolute inset-0 hero-grid" />
 
-      {/* ambient orbs */}
+      {/* ambient orb — 1개만 유지 */}
       <motion.div
         className="absolute rounded-full pointer-events-none"
         style={{
@@ -58,27 +59,13 @@ export const Hero = () => {
         animate={{ x: [0, 55, -25, 0], y: [0, -45, 65, 0] }}
         transition={{ duration: 38, repeat: Infinity, ease: 'easeInOut' }}
       />
-      <motion.div
-        className="absolute rounded-full pointer-events-none"
-        style={{
-          width: 460, height: 460,
-          bottom: '-8%', right: '-6%',
-          background: 'radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)',
-          filter: 'blur(48px)',
-        }}
-        animate={{ x: [0, -45, 35, 0], y: [0, 55, -35, 0] }}
-        transition={{ duration: 44, repeat: Infinity, ease: 'easeInOut' }}
-      />
 
       {/* 커서 스포트라이트 */}
       <div ref={spotlightRef} className="pointer-events-none absolute inset-0" />
 
-      {/* 노이즈 그레인 */}
-      <div className="absolute inset-0 hero-noise pointer-events-none" />
-
       {/* 페이드 마스크 */}
-      <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-white dark:from-slate-950 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-white dark:from-slate-950 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-bg-base to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-bg-base to-transparent pointer-events-none" />
 
       {/* 콘텐츠 */}
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
@@ -92,29 +79,28 @@ export const Hero = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-[13px] font-medium text-slate-500 dark:text-slate-400 tracking-widest uppercase">
-              UI Developer · Publisher
+              {profile.title}
             </span>
           </div>
 
-          {/* 메인 헤딩 — 56px 기준, 무너지지 않는 크기 */}
+          {/* 메인 헤딩 */}
           <h1 className="text-[2.8rem] md:text-[3.5rem] font-bold text-slate-900 dark:text-white leading-[1.1] tracking-tight">
-            유틸리티 기반{' '}
-            <span className="text-blue-500">퍼블리셔</span>
+            디자인을 코드로,{' '}
+            <span className="text-blue-500">정확하게</span>
           </h1>
 
-          {/* 타이핑 서브라인 — 18px */}
+          {/* 타이핑 서브라인 */}
           <p className="text-[18px] text-slate-400 dark:text-slate-500 font-light h-7 tracking-tight">
             {displayedText}
             <span className="inline-block w-px h-[18px] bg-blue-400 ml-0.5 align-middle animate-pulse" />
           </p>
 
-          {/* 설명 본문 — 15px, 가독성 확보 */}
-          <p className="text-[15px] leading-[1.75] text-slate-500 dark:text-slate-400 max-w-[440px]">
-            디자인 시스템의 논리를 공학적으로 풀어내고,
-            협업에서 생기는 문제를 구조로 해결합니다.
+          {/* 설명 본문 — 짧은 태그라인만 사용 (전체 소개는 About에서) */}
+          <p className="text-[15px] leading-[1.75] text-slate-500 dark:text-slate-400 max-w-[440px] whitespace-pre-line">
+            {profile.tagline}
           </p>
 
-          {/* 버튼 — 14px */}
+          {/* 버튼 */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -123,12 +109,12 @@ export const Hero = () => {
           >
             <button
               onClick={() => scrollTo('projects')}
-              className="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 active:scale-95 text-white text-[14px] font-semibold rounded-lg transition-all shadow-md shadow-blue-600/25"
+              className="px-6 py-2.5 bg-accent hover:bg-accent-hover active:scale-95 text-white text-[14px] font-semibold rounded-lg transition-all shadow-md shadow-blue-600/25"
             >
               View Projects
             </button>
             <a
-              href="https://github.com/kimminlee"
+              href={profile.github}
               target="_blank"
               rel="noreferrer"
               className="px-6 py-2.5 bg-white dark:bg-slate-900 text-[14px] font-semibold text-slate-700 dark:text-slate-300 rounded-lg border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 active:scale-95 transition-all"

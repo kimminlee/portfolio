@@ -16,8 +16,8 @@ export const Capabilities = () => {
   const categories = Object.keys(skillsByCategory);
 
   return (
-    <section id="capabilities" ref={sectionRef} className="py-24 bg-slate-50 dark:bg-slate-950">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="capabilities" ref={sectionRef} className="py-24 bg-bg-subtle">
+      <div className="max-w-section mx-auto px-6">
 
         {/* 헤더 */}
         <motion.div

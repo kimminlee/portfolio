@@ -20,14 +20,14 @@ export const skills: Skill[] = [
     name: 'React',
     category: 'Frontend',
     level: 'beginner',
-    description: 'useState, useEffect 같은 기본 훅을 사용해본 정도입니다. 컴포넌트 분리는 할 수 있지만 커스텀 훅을 직접 설계한 경험은 없습니다.',
+    description: '이 포트폴리오를 직접 제작하며 익혔습니다. useState·useEffect 기반의 컴포넌트 설계와 기본적인 훅 활용 수준이며, 주력 영역인 HTML/CSS 구현을 위한 보조 도구로 활용합니다.',
     icon: 'Component'
   },
   {
     name: 'TypeScript',
     category: 'Frontend',
     level: 'beginner',
-    description: 'interface나 type 정의 정도는 작성할 수 있습니다. 제네릭이나 고급 유틸리티 타입은 아직 낯설며 타입 추론에 많이 의존합니다.',
+    description: 'interface와 type 정의를 작성하고 컴포넌트 Props를 타입으로 관리하는 수준입니다. 제네릭 등 고급 기능보다 정적 타입이 주는 안전성을 실무에 적용하기 위해 학습 중입니다.',
     icon: 'FileType'
   },
 
@@ -52,15 +52,6 @@ export const skills: Skill[] = [
     level: 'intermediate',
     description: '변수·믹스인·중첩 규칙을 활용해 유지보수하기 쉬운 스타일 구조를 작성합니다. 컴포넌트 단위 파일 분리와 @use/@forward 기반 모듈화도 경험했습니다.',
     icon: 'Layers'
-  },
-
-  // State Management
-  {
-    name: 'Zustand',
-    category: 'State Management',
-    level: 'beginner',
-    description: '간단한 전역 상태 store를 만들어 본 경험은 있습니다. persist나 devtools 같은 미들웨어는 아직 사용해본 적 없습니다.',
-    icon: 'Box'
   },
 
   // Tools
@@ -93,13 +84,19 @@ export const skills: Skill[] = [
     icon: 'Zap'
   },
 
-  // Database
   {
     name: 'Supabase',
-    category: 'Database',
+    category: 'Tools',
     level: 'intermediate',
     description: '프로젝트에서 백엔드 대용으로 사용해봤습니다. 기본 CRUD 쿼리와 Auth 연동은 할 수 있으며, RLS 정책 설정도 경험해봤습니다.',
     icon: 'Database'
+  },
+  {
+    name: 'Zustand',
+    category: 'Tools',
+    level: 'beginner',
+    description: '간단한 전역 상태 store를 만들어 본 경험이 있습니다. persist나 devtools 같은 미들웨어는 아직 사용해본 적 없습니다.',
+    icon: 'Box'
   }
 ];
 

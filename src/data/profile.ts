@@ -2,8 +2,9 @@ import type { Profile } from '../types';
 
 export const profile: Profile = {
   name: '김민이',
-  title: 'UI Engineer',
-  subtitle: '디자인 시스템의 확장성과 렌더링 성능을 설계하는 UI 엔지니어',
+  title: 'UI Developer · Publisher',
+  subtitle: 'Figma 시안을 시맨틱 마크업과 CSS 시스템으로 구현하는 퍼블리셔',
+  tagline: '디자인의 구조를 코드로 정확히 옮기고,\n협업에서 생기는 문제를 기준으로 해결합니다.',
   email: 'qqazs98@gmail.com', 
   github: 'https://github.com/kimminlee',
   introduction: '디자인의 의도를 HTML/CSS로 정확하게 옮기는 것에 강점을 가진 퍼블리셔입니다. Figma 시안을 시맨틱 마크업과 CSS 시스템으로 구현하며, Design Token 기반의 일관된 UI 구조 설계와 웹 접근성(a11y) 준수를 핵심 가치로 삼고 있습니다.',
@@ -17,7 +18,7 @@ export const profile: Profile = {
     {
       company: '(주) VASCO ICT',
       position: 'SW팀 연구원 - UI/UX디자인',
-      period: '2023.05 ~ 현재',
+      period: '2023.05 ~ 2026.05',
       description: 'B2B 에너지 관리 시스템(BEMS) UI/UX 디자인 및 퍼블리싱 전담. 디자인 시안 제작부터 실제 화면 구현까지 전 과정을 담당하며, 데이터 시각화와 대시보드 인터페이스 설계에 집중하고 있습니다.',
       achievements: [
         'Figma 기반 화면 설계 및 디자인 시스템 구축 (40+ 화면)',

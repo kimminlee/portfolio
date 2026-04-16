@@ -16,7 +16,7 @@ export const About = () => {
     <section
       id="about"
       ref={sectionRef}
-      className="py-24 bg-white dark:bg-slate-900"
+      className="py-24 bg-bg-base"
     >
       <div className="max-w-6xl mx-auto px-6">
 
@@ -33,7 +33,7 @@ export const About = () => {
               <img
                 src={PROFILE_IMAGE_SRC}
                 alt="프로필 사진"
-                className="w-40 h-40 md:w-48 md:h-48 rounded-2xl object-cover"
+                className="w-40 h-40 md:w-48 md:h-48 rounded-2xl object-cover ring-1 ring-slate-200 dark:ring-slate-700 shadow-md shadow-slate-200/60 dark:shadow-slate-900/60"
               />
             ) : (
               <div className="w-40 h-40 md:w-48 md:h-48 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center">

@@ -10,6 +10,26 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
+      colors: {
+        /* ── Semantic surface tokens ── */
+        'bg-base':   'rgb(var(--color-bg-base)   / <alpha-value>)',
+        'bg-subtle': 'rgb(var(--color-bg-subtle) / <alpha-value>)',
+        'bg-card':   'rgb(var(--color-bg-card)   / <alpha-value>)',
+        /* ── Accent ── */
+        'accent': {
+          DEFAULT: 'rgb(var(--color-accent)       / <alpha-value>)',
+          hover:   'rgb(var(--color-accent-hover) / <alpha-value>)',
+        },
+        /* ── Text ── */
+        'text-primary':   'rgb(var(--color-text-primary)   / <alpha-value>)',
+        'text-secondary': 'rgb(var(--color-text-secondary) / <alpha-value>)',
+        /* ── Border ── */
+        'border-token': 'rgb(var(--color-border) / <alpha-value>)',
+      },
+      maxWidth: {
+        /* 전 섹션 컨테이너 너비를 이 값 하나로 통일 */
+        'section': '72rem', /* = max-w-6xl */
+      },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',

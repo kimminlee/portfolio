@@ -56,7 +56,7 @@ export interface Project {
 export type SkillCategory = 
   | 'Frontend'
   | 'Styling'
-  | 'State Management'  //추가됨
+  | 'State Management'
   | 'Tools'
   | 'Database'
   | 'Other';
@@ -84,10 +84,11 @@ export interface Experience {
 export interface Profile {
   name: string;
   title: string;
-  subtitle: string;
+  subtitle: string;   // Hero 타이핑 애니메이션용 한 줄 문장
+  tagline: string;    // Hero 본문 짧은 설명 (2줄 이내)
   email: string;
   github: string;
-  introduction: string;
+  introduction: string; // About 섹션 전체 소개
   strengths: string[];
   experiences: Experience[];
 }
